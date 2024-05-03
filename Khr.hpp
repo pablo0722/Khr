@@ -42,16 +42,14 @@
 #include <EGL/eglplatform.h>
 #include <EGL/egl.h>
 
-#include "WindowSystem/WindowEvent.hpp"
+#include "WindowSystem/WindowSystem.hpp"
 #include "GLEngine/Khr/Egl/Egl.hpp"
 
 class Khr
 {
     public:
-        bool CreateSurfaceAndBindContext(const char *title, int posx, int posy, int width, int height, GLuint flags);
-        void swapBuffers();
-
-        void getEvent(WindowEvent *event) const;
+      bool CreateSurfaceAndBindContext(EGLNativeDisplayType display, EGLNativeWindowType window, GLuint flags);
+      void swapBuffers();
 
     private:
         Egl egl;
